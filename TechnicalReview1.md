@@ -1,5 +1,5 @@
 # sd-final-project
-link to presentation deck: https://docs.google.com/presentation/d/1zLZVxU8u8AS3vfV3O7csLKLGldLhTqfaN7gcJeXVONY/edit#slide=id.g13a9911450_0_10
+[link to presentation deck](https://docs.google.com/presentation/d/1zLZVxU8u8AS3vfV3O7csLKLGldLhTqfaN7gcJeXVONY/edit#slide=id.g13a9911450_0_10)
 
 ## Background and context
 
