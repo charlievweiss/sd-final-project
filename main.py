@@ -11,7 +11,7 @@ def index():
 	return render_template('main_page.html')
 
 # display page - provides board visual and downloadable file
-# TODO - incorporate loading page, error page, updating view of board
+# TODO - incorporate loading page, updating view of board
 @app.route('/login',methods=['POST'])
 def login():
 	rider_weight=request.form['rider_weight']
