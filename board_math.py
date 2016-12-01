@@ -22,7 +22,7 @@ def board_math(rider_weight, riding_style_value):
         ## variables:
         #layers = number of layers of fiberglass
         #E_c = #youngs modulous of the core - a changing value based on the geometry
-        h = c + (fiberthickness * layers) #thickness of the deck/specimin including fiberglass ***this might actually be better suited as a variable
+        h = c + (fiber_thickness * layers) #thickness of the deck/specimin including fiberglass ***this might actually be better suited as a variable
 
         # S = (P / ((h + c) * b)) #core shear stress
         # F = ((P * a) / (2 * f * (h + c))) * b #average facing stress
@@ -48,3 +48,5 @@ def board_math(rider_weight, riding_style_value):
     Outputs = small_circle, big_circle
 
     return Outputs
+
+board_math(180, 1)
