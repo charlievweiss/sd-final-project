@@ -1,4 +1,4 @@
-def = board_math(rider_weight, riding_style_value):
+def board_math(rider_weight, riding_style_value):
     import MATH
 
     ## INPUT VALUES:

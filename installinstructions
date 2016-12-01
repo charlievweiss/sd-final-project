@@ -2,5 +2,5 @@ To install solidpython/OpenSCAD (on ubuntu linux)
 
 sudo add-apt-repository ppa:openscad/releases
 sudo apt-get update
-
+sudo apt-get install openscad
 sudo pip install solidpython
