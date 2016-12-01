@@ -22,14 +22,13 @@ def login():
 	if rider_weight and riding_style:
 		# Call board_math.py to get board parameters
 		# Returns list of small circle diameter, big circle diameter
+		rider_weight = int(rider_weight) #check if can make original inputs ints
 		riding_style = int(riding_style) #necessary to pass to board_math
-		#Outputs = board_math.board_math(rider_weight,riding_style)
-		# TODO: next 2 lines as things in Outputs
-		#diameter1 = Outputs[0]
-		#diameter2 = Outputs[1]
-		#print diameter1,diameter2
+		Outputs = board_math.board_math(rider_weight,riding_style)
+		diameter1 = Outputs[0]
+		diameter2 = Outputs[1]
 		# Call hexdraw.py to generate DXF
-		#filename = hexdraw.hexdraw(diameter1,diameter2)
+		filename = hexdraw.hexdraw(diameter1,diameter2)
 		# TODO: Convert filename DXF to an actually presentable thing.
 		# the return statement should be Andrew's code
 		# return render_template('downloadpage.html', filename=filename)
