@@ -1,5 +1,5 @@
-def = board_math(rider_weight, riding_style_value):
-    import MATH
+def board_math(rider_weight, riding_style_value):
+    import math
 
     ## INPUT VALUES:
     # rider_weight = rider weight in lbs
@@ -9,7 +9,7 @@ def = board_math(rider_weight, riding_style_value):
     ## FANCY MATH STUFF:
     ## constants:
     E_f = 72 * 10**9 #youngs modulous of one layer of 6oz fiberglass
-    w = deformation_matrix(riding_style_value) #remaps descrite input to mm value of flex also known as the mid span deflection
+    w = deformation_matrix[riding_style_value] #remaps descrite input to mm value of flex also known as the mid span deflection
     v = 0.33 #poisons ratio - this is kinda just a close enought value
     L =  .685 #total lenghth of the desk (specimin) m
     b = .190 #width of the deck/ specimin m
@@ -33,7 +33,7 @@ def = board_math(rider_weight, riding_style_value):
         if side_length <=.75 and side_length >= .2:
             break
         else:
-            side_length = none
+            side_length = 1
 
     ## OUTPUTS:
     percent_coverage = .25 #setting this as a constant for now until find a better way to impliment
