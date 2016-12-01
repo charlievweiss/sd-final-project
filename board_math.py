@@ -48,5 +48,3 @@ def board_math(rider_weight, riding_style_value):
     Outputs = small_circle, big_circle
 
     return Outputs
-
-board_math(180, 1)
