@@ -10,15 +10,13 @@
 <body>
    Hello! Please fill this out: </br>
    ** Please make sure all fields are filled out
-   <form action="/login" method="post">
-   	Rider weight (units):<!-- include a lb or kg option?-->
-   	<input type="text" name="rider_weight"><br>
-   	Board length (units):
-   	<input type="text" name="board_length"><br>
-   	Riding style:
-   	<input type="radio" name="riding_style" value="Wonky" checked> Wonky
-      <input type="radio" name="riding_style" value="Loopy"> Loopy
-      <input type="radio" name="riding_style" value="Floppy"> Floppy </br>
+   <form action="/download" method="post">
+      Rider weight (units):<!-- include a lb or kg option?-->
+      <input type="text" name="rider_weight"><br>
+      Riding style:
+      <input type="radio" name="riding_style" value="0" checked> 0
+      <input type="radio" name="riding_style" value="1"> 1
+      <input type="radio" name="riding_style" value="2"> 2 </br>
       <input type="submit" value="Submit">
    </form>
 </body>

@@ -1,5 +1,4 @@
-<!--Input form that requests rider weight, board length, and riding style-->
-<!-- TODO: get actual preferences; these are all placeholders -->
+<!--Input form that requests rider weight and riding style-->
 
 <!DOCTYPE html>
 <html>
@@ -10,19 +9,14 @@
    </head>
 <body>
    Hello! Please fill this out:
-   <form action="/login" method="post">
+   <form action="/download" method="post">
    	Rider weight (units):<!-- include a lb or kg option?-->
    	<input type="text" name="rider_weight"><br>
-   	Board length (units):
-   	<input type="text" name="board_length"><br>
    	Riding style:
-   	<input type="radio" name="riding_style" value="Wonky" checked> Wonky
-      <input type="radio" name="riding_style" value="Loopy"> Loopy
-      <input type="radio" name="riding_style" value="Floppy"> Floppy </br>
+   	<input type="radio" name="riding_style" value="0" checked> 0
+      <input type="radio" name="riding_style" value="1"> 1
+      <input type="radio" name="riding_style" value="2"> 2 </br>
+      <input type="submit" value="Submit">
    </form>
-   <form action="" method=post enctype=multipart/form-data>
-      <p><input type=file name=file>
-         <input type=submit value=Upload>
-    </form>
 </body>
 </html>
