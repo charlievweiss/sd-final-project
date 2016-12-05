@@ -1,5 +1,5 @@
 import ezdxf
-dwg = ezdxf.readfile("Board_Core.dxf")
+dwg = ezdxf.readfile("Board_Outline.dxf")
 
 
 def flatten(c):
@@ -27,4 +27,4 @@ for e in dwg.entities:
     e.dxf.center = flatten(e.dxf.center)
 
 
-dwg.saveas("core_output.dxf")
+dwg.saveas("outline_output.dxf")
