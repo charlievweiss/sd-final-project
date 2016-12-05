@@ -17,11 +17,11 @@ import os
 
 # folder for DXF upload -- need to change directory based on computer, 
 # currently only works locally
-UPLOAD_FOLDER = '/home/charlie/softdes/sd-final-project'
+UPLOAD_FOLDER = '/home/arpan/sd-final-project'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'DXF'])
 
 app = Flask(__name__)
-# configure folder for upload?
+# configure folder for upload
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # present main page
