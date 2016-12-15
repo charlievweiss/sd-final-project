@@ -4,7 +4,7 @@ def board_math(rider_weight, riding_style_value):
     ## INPUT VALUES:
     # rider_weight = rider weight in lbs
     # riding_style_value = discrete value that represent the desired stiffness of the board 0, 1, or 2
-    deformation_matrix = [.003, .004, .005] #deformation remapping in meters in the center of the board
+    deformation_matrix = [.002, .0035, .005] #deformation remapping in meters in the center of the board
 
     ## FANCY MATH STUFF:
     ## constants:
@@ -18,7 +18,7 @@ def board_math(rider_weight, riding_style_value):
     c = .013 #core shear thickness m
     fiber_thickness = .0015 #thickness of one layer of fiberglass in m
 
-    for layers in [1,2,3,4]:
+    for layers in [1,2,3,4,5,6]:
         ## variables:
         #layers = number of layers of fiberglass
         #E_c = #youngs modulous of the core - a changing value based on the geometry
@@ -30,13 +30,13 @@ def board_math(rider_weight, riding_style_value):
         N = 1 / (4 * ((w / (P * a) - (a**2 / (48 * D))))) #shear stiffness - utilizing the deflection equation
         G = ((N * 4 * c) / ((h + c)**2 * b))/1000 #core shear modulous
         side_length = 1.04466 - (0.0000795962 * G) + (0.000000000131406 * G**2) #side length of the hexagon
-
-        print 'side length = ' + str(side_length)
-        print 'G = ' + str(G)
-        print 'layers = ' + str(layers)
+        # print 'side length = ' + str(side_length)
+        # print 'G = ' + str(G)
+        # print 'layers = ' + str(layers)
         if side_length <=.75 and side_length >= .2:
             break
-
+        else:
+            side_length = .3
 
     ## OUTPUTS:
     percent_coverage = .25 #setting this as a constant for now until find a better way to impliment
@@ -52,4 +52,4 @@ def board_math(rider_weight, riding_style_value):
 
     return Outputs
 
-board_math(180,0)
+# board_math(120,1)
