@@ -4,7 +4,7 @@ def board_math(rider_weight, riding_style_value):
     ## INPUT VALUES:
     # rider_weight = rider weight in lbs
     # riding_style_value = discrete value that represent the desired stiffness of the board 0, 1, or 2
-    deformation_matrix = [.013, .026, .040] #deformation remapping in inches in the center of the board
+    deformation_matrix = [.020, .040, .060] #deformation remapping in inches in the center of the board
 
     ## FANCY MATH STUFF:
     ## constants:
@@ -36,8 +36,7 @@ def board_math(rider_weight, riding_style_value):
         print 'layers = ' + str(layers)
         if side_length <=.75 and side_length >= .2:
             break
-        else:
-            side_length = 1
+
 
     ## OUTPUTS:
     percent_coverage = .25 #setting this as a constant for now until find a better way to impliment
