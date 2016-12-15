@@ -4,7 +4,7 @@ def board_math(rider_weight, riding_style_value):
     ## INPUT VALUES:
     # rider_weight = rider weight in lbs
     # riding_style_value = discrete value that represent the desired stiffness of the board 0, 1, or 2
-    deformation_matrix = [.020, .040, .060] #deformation remapping in inches in the center of the board
+    deformation_matrix = [.003, .004, .005] #deformation remapping in meters in the center of the board
 
     ## FANCY MATH STUFF:
     ## constants:
@@ -28,7 +28,7 @@ def board_math(rider_weight, riding_style_value):
         # F = ((P * a) / (2 * f * (h + c))) * b #average facing stress
         D = (E_f * (h**3 - c**3) * b) / (12 * (1. - v**2)) #flexural stiffness
         N = 1 / (4 * ((w / (P * a) - (a**2 / (48 * D))))) #shear stiffness - utilizing the deflection equation
-        G = ((N * 4 * c) / ((h + c)**2 * b))/100 #core shear modulous
+        G = ((N * 4 * c) / ((h + c)**2 * b))/1000 #core shear modulous
         side_length = 1.04466 - (0.0000795962 * G) + (0.000000000131406 * G**2) #side length of the hexagon
 
         print 'side length = ' + str(side_length)
