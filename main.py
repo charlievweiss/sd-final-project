@@ -15,19 +15,18 @@ import hexdraw
 from werkzeug.utils import secure_filename
 import os
 
-# folder for DXF upload -- need to change directory based on computer, 
-# currently only works locally
-UPLOAD_FOLDER = '/home/arpan/sd-final-project'
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'DXF'])
-
 app = Flask(__name__)
 # configure folder for upload
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
+app.config['UPLOAD_FOLDER'] = 'uploads/'
+app.config['ALLOWED_EXTENSIONS'] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'DXF'])
 # present main page
 @app.route('/')
 def index():
-	return render_template('main_page.html')
+	return render_template('index.html')
+
+@app.route('/draw')
+def left_bar():
+	return render_template('draw.html')
 
 # present download page
 @app.route('/download',methods=['POST'])
@@ -36,23 +35,23 @@ def download():
 	rider_weight=request.form['rider_weight']
 	riding_style=request.form['riding_style']
 	if rider_weight and riding_style:
-		# Call board_math.py to get board parameters
-		# Returns list of small circle diameter, big circle diameter
-		rider_weight = int(rider_weight) #TODO: check if can make original inputs ints
-		riding_style = int(riding_style)
-		Outputs = board_math.board_math(rider_weight,riding_style)
-		# Call hexdraw.py to generate DXF
-		filename = hexdraw.hexdraw(Outputs[0],Outputs[1])
-		# Make filename access file at this location -- see below @app.route('/uploads/<filename>')
-		filename = 'http://127.0.0.1:5000/uploads/' + filename
-		return render_template('downloadpage.html', filename=filename)
+		if rider_weight < 90 or rider_weight > 300:
+			# Call board_math.py to get board parameters
+			# Returns list of small circle diameter, big circle diameter
+			rider_weight = int(rider_weight) #TODO: check if can make original inputs ints
+			riding_style = int(riding_style)
+			#Outputs = board_math.board_math(rider_weight,riding_style)
+			# Call hexdraw.py to generate DXF
+			filename = hexdraw.hexdraw(Outputs[0],Outputs[1])
+			# Make filename access file at this location -- see below @app.route('/uploads/<filename>')
+			filename = 'http://127.0.0.1:5000/static/' + filename
+			return render_template('download.html', filename=filename)
 	else:
-		return render_template('error_page.html')
+		return render_template('error.html')
 
 # upload DXF file
 @app.route('/uploads/<filename>')
 def send_file(filename):
-    return send_from_directory(UPLOAD_FOLDER, filename)
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
-if __name__ == '__main__':
-	app.run()
+app.run(threaded=True)

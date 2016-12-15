@@ -6302,47 +6302,22 @@ difference() {
 	}
 }
 /***********************************************
-*********      SolidPython code:      **********
+******      SolidPython code:      *************
 ************************************************
  
-"""
+Û
+Ì…RXc           @   sX   d  Z  d d l Td d l Td d l Z d d l Z d d l Z d Ñ  Z e d d É d S(   s=   
 SolidpythonProgram that draws a hexagon of given dimensions
-"""
-from solid import *
-from solid.utils import *
-import os, sys
-import math
-
-
-
-def hexdraw(insize,outsize):
-        SEGMENTS = 400
-        #outsize is tip to tip distance of outer hexagon
-        flatflat = outsize*math.sqrt(3)/2.0 #outsize * sqrt3/2 = flat to flat distance
-        out_dir = sys.argv[1] if len(sys.argv) > 1 else os.curdir
-        file_out = os.path.join(out_dir, 'temp.scad')
-        #basic_geometry = import_('Core_Export_New.dxf')
-        basic_geometry = circle(3000)
-        for i in range(0,30):
-                #go right then draw another column
-                leftdist =flatflat*i*.75
-                for i in range(0,30):
-                        Hexagon1 = left(leftdist)(forward(outsize*i*.5)(circle(insize)))
-                        Hexagon1.add_param('$fn',6) # make hexagonal
-                        basic_geometry = difference()(basic_geometry, Hexagon1)
-        scad_render_to_file(basic_geometry, file_out, file_header='$fn = %s;'%SEGMENTS)
-        export_name = "board"
-        filenum = 0
-        filename = "board" + str(filenum) + ".dxf"
-        #figure out what to name generated file
-        while os.path.isfile(filename):
-                filenum += 1
-                filename = "board" + str(filenum) + ".dxf"
-        commandlinearg = 'openscad -o ' + filename+ ' temp.scad'
-        os.system(commandlinearg)
-        return filename
-
-hexdraw(20,50)
+iˇˇˇˇ(   t   *Nc         C   sÜ  d } | t  j d É d } t t j É d k r? t j d n t j } t j j | d É } t	 d É } xç t
+ d d É D]| } | | d	 } xe t
+ d d É D]T } t | É t | | d
+ É t	 |  É É É }	 |	 j d d É t É  | |	 É } qù Wqy Wt | | d d | Éd }
+ d } d t | É d } x4 t j j | É rf| d 7} d t | É d } q3Wd | d } t j | É | S(   Niê  i   g       @i   s	   temp.scadi∏  i    i   g      Ë?g      ‡?s   $fni   t   file_headers	   $fn = %s;t   boards   .dxfs   openscad -o s
+    temp.scad(   t   matht   sqrtt   lent   syst   argvt   ost   curdirt   patht   joint   circlet   ranget   leftt   forwardt	   add_paramt
+   differencet   scad_render_to_filet   strt   isfilet   system(   t   insizet   outsizet   SEGMENTSt   flatflatt   out_dirt   file_outt   basic_geometryt   it   leftdistt   Hexagon1t   export_namet   filenumt   filenamet   commandlinearg(    (    s.   /home/andrewholmes/sd-final-project/hexdraw.pyt   hexdraw   s*    +,
+i   i2   (   t   __doc__t   solidt   solid.utilsR   R   R   R$   (    (    (    s.   /home/andrewholmes/sd-final-project/hexdraw.pyt   <module>   s   
+
+	 
  
- 
-************************************************/
+***********************************************/
+                            
