@@ -9,7 +9,11 @@ from flask import Flask,render_template,request, redirect, url_for, send_from_di
 import board_math
 import hexdraw
 from werkzeug.utils import secure_filename
-import os
+import os, sys
+from solid import *
+from solid.utils import *
+import math
+
 
 app = Flask(__name__)
 # configure folder for upload

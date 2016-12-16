@@ -1,4 +1,5 @@
 def board_math(rider_weight, riding_style_value):
+    """Given rider weight and riding style returns lightweighting hexagon inner and outer tip-to-tip sizes in millimeters"""
     import math
 
     ## INPUT VALUES:
