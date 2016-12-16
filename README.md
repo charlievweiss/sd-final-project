@@ -11,7 +11,7 @@ Hexdecks supports UNIX environments and was built in and for Ubuntu Linux. Our i
 #### Here's how to install it:
 * With console commands
 
-1. Install Flask 
+1. Install [Flask](http://flask.pocoo.org/) 
   * $sudo pip install flask 
 2. Install [OpenScad](http://www.openscad.org/) 
   * $ sudo add-apt-repository ppa:openscad/releases    
@@ -22,10 +22,11 @@ Hexdecks supports UNIX environments and was built in and for Ubuntu Linux. Our i
   * $sudo python setup.py install 
 4. Clone our [repository](https://github.com/charlievweiss/sd-final-project) to the directory of your choice 
   * $git clone https://github.com/charlievweiss/sd-final-project.git 
-5. Launch main.py to start the backend and [click here](http://127.0.0.1:5000/)to make a sick deck! 
+5. Launch main.py to start the backend and [click here](http://127.0.0.1:5000/) to make a sick deck! 
   * $python main.py 
 
 # License
 
 Project under a CC license. See the license.txt file for more info
+
   
