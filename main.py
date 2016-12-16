@@ -31,17 +31,23 @@ def download():
 	rider_weight=request.form['rider_weight']
 	riding_style=request.form['riding_style']
 	if rider_weight and riding_style:
-		if rider_weight < 90 or rider_weight > 300:
-			# Call board_math.py to get board parameters
-			# Returns list of small circle diameter, big circle diameter
-			rider_weight = int(rider_weight) #TODO: check if can make original inputs ints
-			riding_style = int(riding_style)
-			Outputs = board_math.board_math(rider_weight,riding_style)
-			# Call hexdraw.py to generate DXF
-			filename = hexdraw.hexdraw(Outputs[0],Outputs[1])
-			# Make filename access file at this location -- see below @app.route('/uploads/<filename>')
-			filename = 'http://127.0.0.1:5000/static/' + filename
-			return render_template('download.html', filename=filename)
+			try:
+				#check for too high rider weights
+				if float(rider_weight)<=900:
+					# Call board_math.py to get board parameters
+					# Returns list of small circle diameter, big circle diameter
+					rider_weight = int(rider_weight) #TODO: check if can make original inputs ints
+					riding_style = int(riding_style)
+					Outputs = board_math.board_math(rider_weight,riding_style)
+					# Call hexdraw.py to generate DXF
+					filename = hexdraw.hexdraw(Outputs[0],Outputs[1])
+					# Make filename access file at this location -- see below @app.route('/uploads/<filename>')
+					filename = 'http://127.0.0.1:5000/static/' + filename
+					return render_template('download.html', filename=filename)
+				else:
+					return render_template('error.html')
+			except:
+				return render_template('error.html')
 	else:
 		return render_template('error.html')
 
