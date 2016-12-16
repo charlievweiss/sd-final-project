@@ -36,11 +36,10 @@ def download():
 			# Returns list of small circle diameter, big circle diameter
 			rider_weight = int(rider_weight) #TODO: check if can make original inputs ints
 			riding_style = int(riding_style)
-			#Outputs = board_math.board_math(rider_weight,riding_style)
+			Outputs = board_math.board_math(rider_weight,riding_style)
 			# Call hexdraw.py to generate DXF
-			#filename = hexdraw.hexdraw(Outputs[0],Outputs[1])
+			filename = hexdraw.hexdraw(Outputs[0],Outputs[1])
 			# Make filename access file at this location -- see below @app.route('/uploads/<filename>')
-			filename = 'board0.dxf'
 			filename = 'http://127.0.0.1:5000/static/' + filename
 			return render_template('download.html', filename=filename)
 	else:
