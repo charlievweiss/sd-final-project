@@ -1,7 +1,7 @@
 # Heck Decks
 ## Andrew Holmes, Brennan VandenHoek, Arpan Rau, Charlie Weiss
 
-##Build using SolidPython, Flask, and Openscad
+##Built using SolidPython, Flask, and Openscad
 
 # Description
 Hex Decks is a python program that generates custom skateboard decks tailored to you and your riding style. Hex Decks is based off of previous research that was done at Olin college characterizing the effect that a change in core geometry has on the stiffness of a composite skateboard deck. Hex Decks takes data about the rider's weight and stiffness preferences through a web interface and generates a .DXF cut file that can be used to make a skateboard with the specified stiffness characteristics. 
