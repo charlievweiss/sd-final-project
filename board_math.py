@@ -20,19 +20,13 @@ def board_math(rider_weight, riding_style_value):
 
     for layers in [1,2,3,4,5,6]:
         ## variables:
-        #layers = number of layers of fiberglass
-        #E_c = #youngs modulous of the core - a changing value based on the geometry
         h = c + (fiber_thickness * layers) #thickness of the deck/specimin including fiberglass ***this might actually be better suited as a variable
-
         # S = (P / ((h + c) * b)) #core shear stress
         # F = ((P * a) / (2 * f * (h + c))) * b #average facing stress
         D = (E_f * (h**3 - c**3) * b) / (12 * (1. - v**2)) #flexural stiffness
         N = 1 / (4 * ((w / (P * a) - (a**2 / (48 * D))))) #shear stiffness - utilizing the deflection equation
         G = ((N * 4 * c) / ((h + c)**2 * b))/1000 #core shear modulous
         side_length = 1.04466 - (0.0000795962 * G) + (0.000000000131406 * G**2) #side length of the hexagon
-        # print 'side length = ' + str(side_length)
-        # print 'G = ' + str(G)
-        # print 'layers = ' + str(layers)
         if side_length <=.75 and side_length >= .2:
             break
         else:
@@ -45,11 +39,9 @@ def board_math(rider_weight, riding_style_value):
     web_thickness = (large_side_length - side_length) / 2 #the thickness of the webs between hex cut outs
     fiberglass_layers = layers #bidirectional 6oz fiberglass
 
-    small_circle = side_length * math.sqrt(3) #inscribed circle of a hex
-    big_circle = large_side_length * math.sqrt(3) #inscribed circle for large hex
+    small_circle = side_length * math.sqrt(3) * 25.4 #inscribed circle of a hex converted to mm
+    big_circle = large_side_length * math.sqrt(3) * 25.4 #inscribed circle for large hex converted to mm
 
     Outputs = small_circle, big_circle
 
     return Outputs
-
-# board_math(120,1)
