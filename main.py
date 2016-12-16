@@ -1,13 +1,9 @@
 """main page for app
 - assigns upload folder for DXF
-- takes inputs from user by accessing main_page.html
+- takes inputs from user by accessing index.html
 - calls board_math.py and hexdraw.py to calculate specs and create DXF
-- provides link to DXF download on downloadpage.html
-
-TODO:
-- make DXF upload happen non-locally
-- convert DXF to viewable file
-- change main_page.html to make original inputs ints rather than converting here"""
+- provides link to DXF download on download.html
+"""
 
 from flask import Flask,render_template,request, redirect, url_for, send_from_directory
 import board_math
@@ -42,8 +38,9 @@ def download():
 			riding_style = int(riding_style)
 			#Outputs = board_math.board_math(rider_weight,riding_style)
 			# Call hexdraw.py to generate DXF
-			filename = hexdraw.hexdraw(Outputs[0],Outputs[1])
+			#filename = hexdraw.hexdraw(Outputs[0],Outputs[1])
 			# Make filename access file at this location -- see below @app.route('/uploads/<filename>')
+			filename = 'board0.dxf'
 			filename = 'http://127.0.0.1:5000/static/' + filename
 			return render_template('download.html', filename=filename)
 	else:
