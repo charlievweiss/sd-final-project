@@ -1,4 +1,4 @@
-"""Main page for app
+"""Main funcgtion for app
 - assigns upload folder for DXF
 - takes inputs from user by accessing index.html
 - calls board_math.py and hexdraw.py to calculate specs and create DXF
@@ -8,7 +8,6 @@
 from flask import Flask,render_template,request, redirect, url_for, send_from_directory
 import board_math
 import hexdraw
-
 
 app = Flask(__name__)
 # configure folder for upload
@@ -23,20 +22,20 @@ def index(): #Uses flask to render the homepage
 def left_bar(): #Renders the form and routes it to '/form'
 	return render_template('form.html')
 
-"""
-Takes in user input from form.html, checks that it is a valid entry, 
-generates a model based on the information, and sends the user to the download 
-page if valid.
-"""
 @app.route('/download',methods=['POST'])
 def download():
+	"""
+	Takes in user input from form.html, checks that it is a valid entry,
+	generates a model based on the information, and sends the user to the download
+	page if valid.
+	"""
 	rider_weight=request.form['rider_weight']
 	riding_style=request.form['riding_style']
 	if rider_weight and riding_style:
-			try: #tests to see if the input returns an error of any kind and if so defaults to except
+			try: #handle user input errors
 				if float(rider_weight)<=900 and float(rider_weight) >= 20:
 					# Call board_math.py to get board parameters
-					rider_weight = int(rider_weight) 
+					rider_weight = int(rider_weight)
 					riding_style = int(riding_style)
 					Outputs = board_math.board_math(rider_weight,riding_style) #Returns list of small circle diameter, big circle diameter
 					filename ='http://127.0.0.1:5000/static/' + hexdraw.hexdraw(Outputs[0],Outputs[1]) # Call hexdraw.py to generate DXF and modify the filename to refer to the local window
