@@ -1,5 +1,8 @@
 
-
+import os,sys
+from solid import *
+from solid.utils import *
+import math
 
 def hexdraw(insize,outsize):
         """Given a tip-to-tip size of inner and outer hexagons in lightweighting pattern(insize and outsize respectively) in millimeters
